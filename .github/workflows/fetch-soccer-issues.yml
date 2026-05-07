@@ -1,0 +1,51 @@
+name: Fetch Issues from redbackbots-soccer
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'  # Run every 6 hours
+  workflow_dispatch:
+    inputs:
+      force_sync:
+        description: 'Force re-sync all issues'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  issues: write
+  projects: write
+
+jobs:
+  fetch-soccer-issues:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run soccer issues fetch script
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PROJECT_ID: '3'
+          SOCCER_REPOSITORY: rmit-computing-technologies/redbackbots-soccer
+        run: |
+          python .github/scripts/fetch_soccer_issues.py
+
+      - name: Summary
+        run: |
+          echo "## Sync Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Triggered by: \`${{ github.event_name }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "Branch: \`${{ github.ref_name }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "Commit: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Source Repository: \`rmit-computing-technologies/redbackbots-soccer\`" >> $GITHUB_STEP_SUMMARY
+          echo "Target Repository: \`${{ github.repository }}\`" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "See the workflow run logs above for detailed results." >> $GITHUB_STEP_SUMMARY
