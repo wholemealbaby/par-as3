@@ -1,0 +1,332 @@
+Base stations
+Base Station 2.0
+About SteamVR Base Station 2.0
+This hardware is included with the full kit, but not with the headset-only package. You can
+purchase them separately if you don't have the full kit. To order, go to the Accessories section
+on www.vive.com/product/. Product availability may vary; please contact customer care with
+questions.
+The base stations use advanced optics to help your headset and accessories maintain precise
+tracking in your play area.
+§ The base stations beam signals to the headset and controllers. Do not cover the front panel
+with any material.
+§ When the base stations are turned on, they may affect some nearby infrared sensors, such as
+those used by an IR TV remote control.
+1 Status light
+2 Front panel
+3 Power port
+4 Threaded mounting hole
+45 Base stations
+§ Do not attempt to pry open the base stations as doing so could injure you or damage the
+product.
+§ If the front panel is cracked or damaged, stop using the base stations and contact HTC
+Support.
+46 Base stations
+Installing SteamVR Base Station 2.0
+This hardware is included with the full kit, but not with the headset-only package. You can
+purchase them separately if you don't have the full kit. To order, go to the Accessories section
+on www.vive.com/product/. Product availability may vary; please contact customer care with
+questions.
+Before installing the base stations, decide first whether you want to set up a room-scale or
+seated/standing-only play area. See Planning your play area on page 72.
+§ Make sure that the base stations are installed outside the play area and securely set up from
+being accidentally struck, dropped, or bumped to avoid damage or compromised
+performance.
+§ Remember to peel off the protective film from the front panel after you've mounted the base
+stations.
+1. Mount the base stations diagonally at opposite corners of your space and near power
+outlets.
+For details on how to use the mounting kit, see Using the mounting kit to install SteamVR
+Base Station 2.0 on page 54.
+You can also use tripods, light stands, or cargo poles when mounting the base stations, or
+even place it on stable book cases. Just avoid using unstable mounting solutions or
+surfaces that are prone to vibration.
+2. Adjust the base stations so that the front panels are facing toward the center of the play
+area.
+3. Attach the power cables to the base stations, and then plug each of the adapter into a
+power outlet to turn them on.
+Use only the power cables and adapters that came with your base stations.
+47 Base stations
+Depending on the variant of your hardware, the status lights should be white or green.
+Once turned on, do not move or adjust the angles of the base stations as it could disrupt the
+tracking process. Otherwise, you will need to set up the play area again.
+48 Base stations
+Tips for setting up SteamVR Base Station 2.0
+This hardware is included with the full kit, but not with the headset-only package. You
+can purchase them separately if you don't have the full kit. To order, go to the
+Accessories section on www.vive.com/product/. Product availability may vary; please
+contact customer care with questions.
+You may set up the base stations in a way that's suitable for your place. For best results,
+you may follow these recommendations:
+§ Mount your base stations diagonally, at opposite corners of your space.
+§ Each base station has a 150-degree horizontal field of view and a 110-degree
+vertical field of view. To maximize your play area, set up at above head height (ideally
+more than 2 m or 6.5 ft from the floor), with the angle of each base station adjusted
+between 25 and 35 degrees.
+If your space doesn’t allow for this kind of setup, you can also mount the base
+stations on tripods and light stands, or place them on stable surfaces such as a
+table.
+For proper tracking, set each base station at a lowest height of 0.5 m (1.6 ft).
+Depending on how high you set them up, you need to adjust the angle of the base
+stations upward or downward to fully cover the play area.
+§ Secure the base stations in a location where they can't be easily jostled or moved.
+§ For best performance, trackable objects should be at least 0.5 m (1.6 ft) away from a
+base station.
+§ Avoid setting up in an area with bright light, which may negatively affect the
+performance of the base stations.
+49 Base stations
+How many SteamVR Base Stations 2.0 can I use in a single setup?
+You can use up to four base stations in a single room covering 10 m x 10 m (32 ft 10 in x 32 ft 10
+in).
+What things should I consider when installing more than two SteamVR Base Stations
+2.0?
+You can use up to four base stations in a single room covering 10 m x 10 m (32 ft 10 in x 32 ft 10
+in).
+§ Each base station in the same play area will need to be set to a different channel. This will
+be handled by the SteamVR software automatically.
+§ Each base station has a 150-degree horizontal field of view. Rotate the angle of the base
+stations left or right to fine tune and fully cover the play area.
+Single user setup
+Multi-user setup
+§ For proper tracking, make sure that the distance between any base station and the
+headset and controllers are within a range of 7 m (23 ft). Make sure that there are no
+physical barriers (such as protruding shelves) where you place the base stations, so that it
+can fully cover its field of view and its signals won't be obstructed.
+50 Base stations
+Setting up additional base stations
+You can add more SteamVR Base Stations 2.0 to the standard setup. Follow these procedures in
+the order below to complete the process:
+§ Installing SteamVR Base Station 2.0 on page 47.
+§ Configuring the base station channels on page 52.
+§ Setting up a room-scale play area on page 74.
+51 Base stations
+What are the minimum and maximum play area when using more than two SteamVR
+Base Stations 2.0?
+The minimum play area remains to be at 2 m x 1.5 m (6 ft 6 in x 5 ft) , and could support sitting/
+standing setup with four base stations in a row. The maximum area with four base stations is up
+to 10 m x 10 m (32 ft 10 in x 32 ft 10 in).
+My available space has an irregular shape. Can I still set up more than two SteamVR
+Base Stations 2.0?
+Yes, there are nearly unlimited ways to setup multiple base stations to cover most asymmetric
+and irregular spaces within the range of SteamVR Base Station 2.0.
+Here are some examples:
+Can I use an odd number of SteamVR Base Stations 2.0?
+Yes. Each base station works independently of the others, and there is no pairing requirement
+between them.
+Configuring the base station channels
+If you're using more than two SteamVR Base Stations 2.0 in your play area, you can change the
+channel of the additional base stations.
+In the SteamVR app, make sure Enable Bluetooth in Devices Bluetooth Settings is
+selected.
+1. From your computer, open the SteamVR app.
+2. Click , and then select Devices Base Station Settings.
+52 Base stations
+3. Under Base Station 2.0, click Configure Base Station Channels. SteamVR will scan for
+base stations in the play area. Once complete, you'll see a list of base stations. If you have
+base stations that have not been detected, click Scan For More.
+4. To change its channel, click on a base station link. Select an unused channel, and then
+click Apply.
+You can also click Automatic Configuration to let SteamVR set the channels.
+If you're prompted that there is a channel conflict, click Continue to resolve the error.
+5. When you're finished making the changes, click Done.
+53 Base stations
+How can I check which base stations are currently in use?
+SteamVR automatically detects the base stations in your play area. If you have more than 2
+SteamVR Base Stations 2.0, you can check which of these are used in your VIVE VR system.
+1. From your computer, open the SteamVR app.
+2. Do one of the following:
+§ Click , and then select Devices Base Station Settings Configure Base
+Station Channels.
+You'll see a list of all base stations in range. The base stations that are tracked by the
+headset will have next to them.
+§ Click , and then select Create System Report.
+From the log, you'll see the device names of the base stations that are currently used.
+§ Hover your cursor over the base station icon, and then click Identify Base Staion.
+The status light on the base station rapidly flashes white.
+Using the mounting kit to install SteamVR Base Station 2.0
+For best results, install SteamVR Base Station 2.0 using a mounting kit, which is provided as an
+in-box item in VIVE Pro 2 full kit. If you bought more SteamVR Base Station 2.0 units, you can
+separately purchase a similar mounting kit from a third-party supplier.
+§ You will need a screwdriver or drill to install the mounts. Ask a professional for help when
+using power tools.
+§ Remember to peel off the protective film from the front panel after you've mounted the base
+stations.
+1. Mark where you want to install each of the mounts on your wall, and then screw the
+mounts in.
+When mounting on concrete or drywall, first drill ¼ inch holes and insert anchors before
+screwing mounts in.
+2. Rotate the base station to screw it onto the threaded ball joint. Do not screw the base
+station all the way in, only enough to be stable and oriented correctly.
+3. Tighten the wingnut to the base station to secure it in place.
+1 2 3
+54 Base stations
+4. To adjust the angle of the base station, loosen the clamping ring while carefully holding
+the base station to prevent it from falling.
+5. Tilt the base station toward the play area. To fix the angle of the base station, tighten the
+clamping ring back in.
+6. Attach the power cable to each base station.
+5 64
+Cleaning the base stations
+Always keep the base stations and their power adapters dry and away from liquids to avoid shock
+hazard.
+To clean the base stations:
+1. Unplug and unmount the base stations.
+2. Use a lightly moistened non-abrasive cloth to clean the base stations. Do not use cleaning
+chemicals.
+3. While cleaning the base stations, do not scratch the front panel nor disassemble any of its
+parts.
+55 Base stations
+Base Station 1.0
+About VIVE Base Station 1.0
+If you have Base Station 1.0, you can still use them with VIVE Pro 2.
+§ The base stations beam signals to the headset and controllers. Do not cover the front panel
+with any material.
+§ When the base stations are turned on, they may affect some nearby infrared sensors, such as
+those used by an IR TV remote control.
+1 Status light
+2 Front panel
+3 Channel indicator (recessed)
+4 Power port
+5 Channel button
+6 Sync cable port (optional)
+7 Micro-USB port (for firmware updates)
+§ Do not attempt to pry open the base stations as doing so could injure you or damage the
+product.
+§ If the front panel is cracked or damaged, stop using the base stations.
+56 Base stations
+Installing Base Station 1.0
+Before installing the base stations, decide first whether you want to set up a room-scale or
+seated/standing-only play area. See Planning your play area on page 72.
+During unboxing, remove the thin film that covers the front panel of the base stations.
+1. Mount the base stations diagonally at opposite corners of your space.
+For details on how to use the mounting kit, see Using the mounting kit to install Base
+Station 1.0 on page 59.
+You can also use tripods, light stands, or cargo poles when mounting the base stations, or
+even place it on stable book cases. Just avoid using unstable mounting solutions or
+surfaces that are prone to vibration.
+2. Adjust the base stations so that the front panels are facing toward the center of the play
+area.
+3. Attach the power cables to the base stations, and then plug them each into a power outlet
+to turn them on. The status lights should be green.
+4. Connect the base stations and set the channels.
+For details on how to get the sync cable, contact customer care.
+Without the sync
+cable
+Press the Channel buttons at the back of the base stations so
+that one base station is set to channel “b”, while the other is set
+to channel “c”.
+With the sync cable
+(optional for added
+reliability)
+Press the Channel buttons at the back of the base stations so
+that one base station is set to channel “A”, while the other is set
+to channel “b”.
+57 Base stations
+Once turned on, do not move or adjust the angles of the base stations as it could disrupt the
+tracking process. Otherwise, you will need to set up the play area again.
+58 Base stations
+Tips for setting up Base Station 1.0
+You may set up the base stations in a way that's suitable for your place. For best results,
+you may follow these recommendations:
+§ Mount the base stations diagonally and above head height, ideally more than 2 m (6
+ft 6 in).
+§ Secure the base stations in a location where they can't be easily jostled or moved.
+§ Each base station has a 120-degree field of view, so it's ideal to adjust its angle
+between 30 and 45 degrees to fully cover your play area.
+§ For optimal tracking, make sure that the maximum distance between the two base
+stations is 5 m (16 ft 4 in).
+§ Avoid setting up in an area with bright light, which may negatively affect the
+performance of the base stations.
+Using the mounting kit to install Base Station 1.0
+For best results, install the base stations using a mounting kit. If you purchased the first-
+generation VIVE, it has the mounting kit in the box. Otherwise, you can separately purchase a
+similar mounting kit from a third-party supplier.
+You will need a screwdriver or drill to install the mounts. Ask a professional for help when
+using power tools.
+1. Mark where you want to install each of the mounts on your wall, and then screw the
+mounts in.
+When mounting on concrete or drywall, first drill ¼ inch holes and insert anchors before
+screwing mounts in.
+2. Rotate the base station to screw it onto the threaded ball joint. Do not screw the base
+station all the way in, only enough to be stable and oriented correctly.
+59 Base stations
+3. Tighten the wingnut to the base station to secure it in place.
+1 2 3
+4. To adjust the angle of the base station, loosen the clamping ring while carefully holding
+the base station to prevent it from falling.
+5. Tilt the base station toward the play area.
+Make sure it has an unobstructed view of the other base station. Each base station has a
+120-degree field of view. They should be angled down between 30 and 45 degrees.
+To fix the angle of the base station, tighten the clamping ring back in.
+6. Attach the power cable to each base station.
+4 65
+Updating Base Station 1.0 firmware via cable connection
+You can connect the base stations to the USB port on your computer and update their firmware.
+1. From your computer, open the SteamVR app.
+2. If you see the icon, mouse over it to check if the firmware is out of date. If so, click
+Update Device.
+3. Unplug the base stations from their power adapters, and then carefully unmount them.
+4. Using a micro-USB cable, connect the base stations to one of your computer’s USB ports
+one at a time.
+60 Base stations
+5. While pressing the Channel button at the back of the base station, plug in the base
+station’s power adapter.
+Once the base station is detected by the SteamVR app, the firmware update will start
+automatically.
+Do not unplug the micro-USB cable or power cable before the firmware update is complete.
+Doing so could result in a firmware error.
+6. When the update is complete, click Done.
+Base Station 1.0 and 2.0 FAQs
+How do I update base station firmware via Bluetooth?
+Make sure your headset is connected to your computer during the update.
+1. From your computer, open the SteamVR app.
+2. Click Devices Bluetooth Settings Enable Bluetooth .
+3. Do one of the following:
+§ Click Devices Update Device, and then select the base stations.
+§ If you see the icon, mouse over it to check if the firmware is out of date. If so, click
+Update Device.
+4. Follow the onscreen instructions to complete the process.
+Do not unplug the power cable before the firmware update is complete. Doing so may result in
+a firmware error.
+61 Base stations
+What does the status light on the base stations mean?
+Depending on the type of base stations you're using and their status, their LED may show the
+following:
+Base Station 2.0 Base Station 1.0
+§ Depending on the variant of your
+hardware, white or green when the
+base station is in normal mode.
+§ Blue or blinking blue when the base
+station is waiting to stabilize. If it
+remains in this state, check if it is
+mounted securely or on a surface
+that's not prone to vibration.
+§ Blinking red when there is an error.
+§ Green when the base station is in normal mode
+§ Blue when the base station is waiting to stabilize. If it
+remains in this state, check if it is mounted securely
+or on a surface that's not prone to vibration.
+§ Dim green when the base station is on standby
+§ Purple when the base stations are trying to sync
+§ Blinking purple when syncing is blocked. If you're
+connecting the base stations wirelessly, you may
+need to use the sync cable. For details on how to get
+the sync cable, contact customer care.
+What should I do if any of the base stations is not detected?
+If any of the base stations appear disabled in the SteamVR app, try the following to troubleshoot
+the problem:
+§ Turn the base station off and on again.
+§ Make sure that you've installed your base stations correctly. Depending on the type of
+base stations you're using, see Installing SteamVR Base Station 2.0 on page 47 or
+Installing Base Station 1.0 on page 57.
+§ Restart the SteamVR app. If you still get an error, reboot your computer and reopen the
+SteamVR app.
+For more information, you may refer to the SteamVR Troubleshooting page.
+Can Base Station 1.0 be used with SteamVR Base Station 2.0?
+No, they are not compatible. SteamVR Base Station 2.0 has a different method of syncing. Use
+only the same versions of the base stations in your play area so that your setup will work
+correctly.
+Is accidental base station damage covered by warranty?
+Please follow the recommended setup instructions for the base stations carefully, since product
+warranty does not cover accidental damage.
+Stop using the base stations if they are damaged, especially if its front panels are cracked.
+62 Base stations
