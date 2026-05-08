@@ -1,0 +1,148 @@
+Tracker user guide
+2QAB100
+2 Contents
+Contents
+Tracker
+What’s inside the box? 4
+About Tracker 4
+Charging Tracker 5
+Attaching Tracker to an accessory 6
+Turning Tracker on or off 7
+Why does Tracker automatically turn off? 7
+Using the dongle 8
+Pairing Tracker 8
+Can I use more than one Tracker? 9
+Verifying the connection status 9
+Checking the status light 9
+Updating the Tracker firmware 9
+Why can't I see the Tracker icon in SteamVR? 10
+Troubleshooting Tracker 10
+Trademarks and copyrights
+3 About this guide
+About this guide
+In this user guide, we use the following symbols to indicate useful and important information:
+Some apps may not be available in all regions or with your mobile operator.
+This is a tip. A tip gives you an alternative way to do a particular step or procedure, or lets you
+know of an option that you may find helpful.
+This indicates important information that you need in order to accomplish a certain task or to
+get a feature to work properly.
+This provides safety precaution information, that is, information that you need to be careful
+about to prevent potential problems.
+This is a note. A note often gives additional information, such as what happens when you
+choose to do or not to do a certain action. A note also provides information that may only be
+applicable to some situations.
+4 Tracker
+Tracker
+What’s inside the box?
+You’ll find the following items:
+1 Tracker
+2 Dongle
+3 Dongle cradle
+4 USB cable
+About Tracker
+Attach Tracker to a compatible third-party accessory so that it can be detected and used within
+the VIVE VR system.
+5 Tracker
+1 Sensors
+2 USB port
+3 Pogo pin connector
+4 Friction pad
+5 Standard camera mount
+6 Stabilizing pin recess
+7 Status light
+8 Power button
+Charging Tracker
+Make sure to use the USB cable that’s in the box.
+Connect the USB cable to the power adapter that came with your VIVE controllers, and then plug
+the power adapter to a power outlet to charge Tracker.
+When Tracker is fully charged, its status light either shows white if it is off or green if it is turned
+on.
+You can also connect Tracker to a computer’s USB port to charge it.
+6 Tracker
+Attaching Tracker to an accessory
+▪ Standard tripod docking: Align the tripod plate’s bolt and stabilizing pin with the
+corresponding holes on Tracker. Turn the tab on the bottom side of the plate clockwise
+to screw Tracker securely in place.
+For illustration purposes only. Third-party accessories are purchased separately.
+7 Tracker
+Turning Tracker on or off
+▪ To turn Tracker on, briefly press the Power button.
+▪ To turn Tracker off, press the Power button for 5 seconds.
+Why does Tracker automatically turn off?
+When Tracker turns off, check if:
+▪ The battery is drained.
+▪ Pairing has timed out after being idle for more than 30 seconds.
+▪ No movement has happened for more than 5 minutes.
+When you exit the SteamVR app on your computer, Tracker will also automatically turn off.
+You may change the behaviors by selecting in Startup/shutdown in SteamVR/settings.
+8 Tracker
+Using the dongle
+If you’re using two controllers along with Tracker, you need to connect the dongle to enable
+hardware tracking.
+Connect one end of the supplied USB cable to the dongle cradle, and then attach the dongle to
+the cradle. Connect the other end of the USB cable to your computer.
+Pairing Tracker
+After turning Tracker on for the first time, manually pair it with the headset or dongle.
+1. From your computer, open the SteamVR app.
+2. Click , and then select Devices Pair Controller. If you see , you can also hover on
+it and select Pair Tracker.
+3. Press the Power button for around 2 seconds.
+The status light shows as blinking blue while the pairing is in progress. The status light
+turns solid green when Tracker is successfully paired.
+4. Follow the on-screen instructions to complete the process.
+Keep the dongle at least 45 cm (18 in) away from the computer and place it where it won’t be
+moved.
+Always ensure that the play area is entirely clear of all objects, obstacles and other individuals
+when using Tracker on any object intended to be moved while wearing the VIVE headset.
+9 Tracker
+Can I use more than one Tracker?
+You can use multiple Tracker hardware in your VIVE VR system, but this depends on the VR
+content you're using it with.
+Verifying the connection status
+From your computer, open the SteamVR app. Check if the icon for Tracker shows as , which
+means Tracker is detected successfully.
+Checking the status light
+The status light shows:
+▪ Green when Tracker is in normal mode.
+▪ Blinking red when battery is low.
+▪ Blinking blue when Tracker is pairing with the headset or dongle.
+▪ Blue when Tracker is connecting with the headset or dongle.
+Updating the Tracker firmware
+Do not unplug the USB cable any time before the firmware update is complete. Doing so could
+result in a firmware error.
+1. From your computer, open the SteamVR app.
+2. If you see the icon, mouse over it to check if the firmware is out of date. If so, click
+Update firmware.
+3. Using the supplied USB cable, connect Tracker to one of your computer’s USB ports.
+4. Once the Tracker is detected by the SteamVR app, the firmware update will
+start automatically.
+5. When the update is complete, click Done.
+10 Tracker
+Why can't I see the Tracker icon in SteamVR?
+Check that your SteamVR app is updated to the latest version.
+Troubleshooting Tracker
+If Tracker is not detected, try the following methods to troubleshoot the issue:
+▪ Make sure that Tracker is placed inside the play area.
+▪ Turn Tracker off and on again to reactivate the tracking.
+▪ Restart the SteamVR app. If you still get an error, reboot your computer and reopen the
+SteamVR app.
+11 Trademarks and copyrights
+Trademarks and copyrights
+©2020 HTC Corporation. All Rights Reserved.
+VIVE, the VIVE logo, HTC, the HTC logo, and all other HTC product and service names are
+trademarks and/or registered trademarks of HTC Corporation and its affiliates in the U.S. and
+other countries.
+Steam, the Steam logo and SteamVR are trademarks and/or registered trademarks of Valve
+Corporation in the U.S. and/or other countries.
+All other trademarks and service marks mentioned herein, including company names, product
+names, service names and logos, are the property of their respective owners and their use herein
+does not indicate an affiliation with, association with, or endorsement of or by HTC Corporation.
+Not all marks listed necessarily appear in this User Guide.
+Screen images contained herein are simulated. HTC shall not be liable for technical or editorial
+errors or omissions contained herein, nor for incidental or consequential damages resulting from
+furnishing this material. The information is provided “as is” without warranty of any kind and is
+subject to change without notice. HTC also reserves the right to revise the content of this
+document at any time without prior notice.
+No part of this document may be reproduced or transmitted in any form or by any means,
+electronic or mechanical, including photocopying, recording or storing in a retrieval system, or
+translated into any language in any form without prior written permission of HTC.
