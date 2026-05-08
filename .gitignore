@@ -124,3 +124,6 @@ node_modules/
 *.log
 *.sqlite3
 *.sqlite
+
+# Red back soccer codebase
+codebase/
