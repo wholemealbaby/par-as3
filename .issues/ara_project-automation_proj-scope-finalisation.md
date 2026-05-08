@@ -6,7 +6,7 @@
 
 ---
 
-## Issue 1: Complete the Activity Risk Assessment for HTC Vive Motion Tracking
+## ARA-01: Complete the Activity Risk Assessment for HTC Vive Motion Tracking
 
 **Labels:** `documentation` `safety` `**` `ara` `**` `htc-vive` `**`
 
@@ -53,7 +53,7 @@ Each activity has been populated with hazards, risks, current controls, risk rat
 
 ---
 
-## Issue 2: Test Issue Extractor for Transfer of Issues from RedBackBots Soccer Repository
+## Test Issue Extractor for Transfer of Issues from RedBackBots Soccer Repository
 
 **Labels:** `infrastructure` `automation` `**` `testing` `**`
 
@@ -110,7 +110,7 @@ The RedBackBots RoboCup codebase ([`docs/assignment_spec.txt`](../docs/assignmen
 
 ---
 
-## Issue 3: Finalize Project Scope — Natural Landmark Feature Extraction & Particle Filter
+## Finalize Project Scope; Natural Landmark Feature Extraction & Particle Filter
 
 **Labels:** `planning` `research` `requirements` `architecture` `**`
 
