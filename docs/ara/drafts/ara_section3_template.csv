@@ -1,0 +1,49 @@
+Activity or Task,Hazards & Risks,Current Risk Controls,Current Risk Rating - Consequence,Current Risk Rating - Likelihood,Current Risk Rating - Risk Rating,Additional Risk Control Measures,Residual Risk Rating - Consequence,Residual Risk Rating - Likelihood,Residual Risk Rating - Risk Rating,Responsibility
+Moving the robot case,"Manual Handling
+Ergonomic from repeated:
+- Kneeing / bending
+- Moving robot elements","Comply with the Booster P&ERA: AIIL-Booster-K1
+Comply with RMIT manual handling policies.
+If tilting the case from the wheels to a lying position (or vice versa) bend with the knees and with a straight back.",2,C,Medium,"Prefer wheeling the case over carrying.
+Only carry the case via the fixed handles. The pop-up handle may only be used for moving the case on the wheels.
+Do not carry the case above shoulder height.",2,B,Low,"Dr. Timothy Wiley (Academic Supervisor)
+All operators and users"
+Packing/Unpacking the robot,"Manual Handling
+Ergonomic from repeated:
+- Kneeing / bending
+- Moving robot elements","Move the K1 following the RA: AIIL-Booster-K1-MH
+Comply with the Booster P&ERA: AIIL-Booster-K1",2,C,Medium,"When unpacking, either (1) place the robot face-down on a flat ground surface or (2) use the Booster stool (located in the transport case) to sit the robot.
+When packing, place the robot into the case face-first.",2,B,Low,"Dr. Timothy Wiley (Academic Supervisor)
+All operators and users"
+Charging of the battery,"Electrical:
+- Charging
+- Electrical Shock
+- Battery Failure","Charge the battery unit according to the Booster Manual.
+Comply with the Booster P&ERA: AIIL-Booster-K1
+Monitor the battery charging status and battery unit.",4,A,Medium,-,-,-,-,-
+Insertion/removal of the battery into the robot,"Manual Handling
+Ergonomic from repeated:
+- Kneeing / bending
+- Moving robot elements
+Other:
+- Injury
+Electrical:
+- Electrical Shock","Insert the battery unit according to the Booster Manual.
+Comply with the Booster P&ERA: AIIL-Booster-K1
+Ensure the robot is either (1) placed face-down on a flat surface with hands and legs in a natural posture before inserting the battery unit; or (2) naturally seated on its chair.
+The battery can be inserted only one direction - the side-labels facing upwards.
+To remove the battery, the sliding locks must be squeezed. Do not force the sliding locks.",2,B,Medium,-,-,-,-,"Dr. Timothy Wiley (Academic Supervisor)
+All operators and users"
+Activation of soft Software Emergency Stop,"Circumstances, including elsewhere listed in this RA, requiring activation of the soft Software emergency stop functionality.
+Motion:
+- Injury from collision with the robot
+- Injury from an emergency requirement to handle the robot while in motion.
+Object:
+- Collision with other objects
+Other:
+- Injury
+- Unexpected robot movement","Activate soft software E-STOP by placing the K1 in PREP mode.
+Comply with the Booster P&ERA: AIIL-Booster-K1.
+Activate PREP via the K1 PREP button (on the K1's back) or joystick shortcut according to the Booster Manual.
+Monitor the K1 to ensure it comes to a stop. Monitor the K1 to in case it falls if activating PREP mode causes instability.",2,B,Medium,-,-,-,-,"Dr. Timothy Wiley (Academic Supervisor)
+All operators and users"
