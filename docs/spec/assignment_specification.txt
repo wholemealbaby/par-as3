@@ -1,0 +1,585 @@
+Programming Autonomous Robots
+COSC2781 (PG) | COSC2814 (UG) | Semester 1 2026
+Assignment | Robotics Project (DRAFT)
+Assessment Type Group Assessment. Clarifications/updates may be made via announce-
+ments/relevant discussion forums.
+Project Selection No later than, Thursday Workshop in Week 9
+Progress Update During Workshops in Week 12
+Demonstration During Week 15 (by appointment)
+Report Due Date 23.59pm, Sunday June 21st 2026 (Week 15)
+Weight 50% of the final course mark
+Submission Online via Canvas. Submission instructions are provided on Canvas.
+Learning Outcomes This assignment contributes to CLOs: 1 - 5
+1 Overview
+In the project you will research how to solve a problem or algorithm in autonomous robotics, that can be solved
+or demonstrated on one of the AI Innovation Lab or VXLab robot platforms, such as the ROSBot Pro 3.0 (and
+Pro 2.0), Softbank Nao V6, Booster K1, Fourier GR1-Pro, Panther, Tiago„ UFactory xARM6, or UR5e Arm.
+You will implement at least one solution to this problem, and conduct a live demonstration of the effectiveness
+of your implementation on the physical robot platform.
+You will need to show in-depth capabilities in at least one of the core topics about autonomous robotics that are
+discussed in this course. You will need to upon your course knowledge, by diving into deeply into one or more
+of these topics. You will need to conduct research into state-of-the-art approaches, and adapt these methods
+for your project. You will be assessed on your research, the implementation of your project, and the analysis
+and evaluation of the capabilities of the software you develop. You may use simulation to help develop and test
+your software, however, your work must be evaluated on a physical robot. You will present your final work by
+a live demonstration, along with a report detailing your research, analysis and evaluation.
+This specification provides suggested starting point for your project that you may choose from. The exact scope
+will be discussed and determined, with the course coordinator, depended on the make-up of the group. You
+may also negotiate a project with the course coordinator. All projects need to be chosen, and with the project
+scope determined, by the Thursday Workshop in Week 9.
+Aspects of this assessment, and the rubric, are different for UG and PG students. Carefully check the require-
+ment for your level of study. The summary of differences is:
+• UG students must exhibit the depth and breath of their technical capability in designing and implementing
+autonomous robot software. This may vary for each project but could include:
+– Implementation of, and adherence to, a specific robot software architecture.
+1
+– Implementation of ROS2 software required to enable robot functionality, outside of the AI au-
+tonomous behaviour.
+– Implementation of a broad ROS2 autonomous software stack, drawing on a diverse range of topics
+across motion, vision, navigation, mapping, and task planning.
+– Implementation and comparison of multiple methods or algorithms for tackling the project.
+• PG students must design, prepare, and conduct experiments to evaluate their project implementation,
+where the experiment design clearly shows the strengthens and limitations of their work. That is, PG
+students will need to design an experiment that would be suitable for inclusion in a published work/paper
+on their project that would prove to an external reviewer the quality of their work. PG students will need
+to carefully consider how to evaluate and analyse their work, synthesising their knowledge gained in this
+course in the practical implementation of algorithms for autonomous robots.
+1.1 Group Work
+You are required to work groups of 3-4 students. Groups may be formed from both UG and PG students. This
+is because of:
+1. The limited availability of the physical robots
+2. To minimise wear-and-tear and prevent over-use of the robots
+3. Safety, in ensuring appropriate monitoring of the robots during autonomous operation
+Note that unlike in the first assessment, in the project there are specific grades for your individual contribution
+to your group’s work. In your report you will need to record the individual contributions of each group member.
+In the event of group-work issues, individual grades may be allocated. Therefore, we advise that your group uses
+suitable group work tools, such as MS Teams, Task Planner/Trello, and a Git Repository. We also recommend
+that you work closely together on the assignment, developing the code together, so that each member of the
+team has a good understanding of how all of the parts of your final software system work.
+1.2 Learning Outcomes
+This assessment relates to the following course learning outcomes:
+CLO1 Discuss and Critically Analyse and a variety of software architectures and algorithms for solving
+typical problems in the context of autonomous robot systems; Discuss and Critically Analyse the strengths
+and limitations of these architectures and algorithms.
+CLO2 Discuss and Critically Analyse the challenges of designing and developing software for a variety of
+robot systems of different complexities, including noise, uncertainty, and computational power.
+CLO3 Research, Discuss, and Use new and novel algorithms for solving problems with autonomous robot
+systems.
+CLO4 Use pre-existing robot software to solve common problems on simulated and real-world robots; De-
+velop and Implemented new algorithms and software for solving problems on simulated and real-world
+robots; Integrate this software in the ROS framework.
+CLO5 Develop skills for further self-directed learning in the general context of software, algorithms, and
+architectures for autonomous robot systems; Adapt experience and knowledge to and from other computer
+sciences contexts such as artificial intelligence, machine learning, and software design.
+1.3 Use of Artificial Intelligence (AI) Tools in this Assessment
+Perhaps compared to other courses, the use of AI tools and Generative AI in this course is generally quite open.
+This being noted, it remains the case that the majority of your work in this assessment should be your
+own work , and not plagiarised from other sources, or sourced from the use of Artificial Intelligence (AI) tools.
+Therefore, the use AI tools are restricted in certain ways for this assessment task.
+In this assessment task, you may use AI tools to support you in developing ROS2 boilerplate software, generating
+ideas, planning, and/or drafting. You may find it helpful to use AI Tools for:
+1. Boiler-plate ROS code, such as node templates
+2. Boiler-plate ROS package and configuration files
+3. Ensuring ROS syntax is correct, such as topic types
+4. Debugging code compilation errors
+We also suggest reviewing the Course AI Policy on Canvas for hazards and pitfalls in using AI tools in this
+assessment. Any use of such tools must be acknowledged and referenced. Work that is significantly produced by
+2
+AI tools, or where AI tools are used to complete this assessment without attribution may result in an allegation
+of academic misconduct.
+For the purposes of openness, transparency, and academic integrity, you must submit a log of your use of
+generative AI tools during this assessment. This also means you should think about how you track your AI use.
+Each tool has a way of exporting your interaction history. The below links describe how to export your logs
+from different AI tools:
+• ChatGPT
+• Claude
+• Gemini
+Suspected use of AI tools without a log may result in grade penalises and/or misconduct proceedings.
+2 Assessment Details
+The purpose of the project is to enable a robot to autonomously complete a task. Each project is scoped
+differently and the requirements of each project are laid out in Section 4. All of the projects share the features
+described below, which you will be required to address or conduct through the course of your project.
+2.1 Investigation and Research
+You will need to investigate and research algorithms/techniques related to your project. You will need to
+implement and adapt these existing techniques to your particular needs. In your report, you must record the
+findings of your investigate, and cite research relevant to your work. You must fully cite any references that
+you have used within your research, implementation, analysis and/or evaluation.
+2.2 Original Implementation
+You must complete an original implementation of at least one significant element of the autonomous software
+for the robot as part of your project. That is, your work cannot exist entirely of off-the-shelf software, such as
+existing ROS2 packages. The scope of this original implementation is defined within the project definition and
+negotiation with the course coordinator. This original implementation may:
+• Significantly modify or adapt existing techniques and algorithms for practical use on a robot.
+• Be a novel implementation of your own creation.
+Your report should describe your original implementation.
+2.3 Robot Software Architecture
+You must consider and choose an appropriate robot software architecture (such as SPA, Subsumption, or a
+three-tier architecture) for implementing your solution to the project. You will need to describe and justify
+your choice of robot software architecture in your report, and show that your project adheres to this architecture.
+2.4 Autonomy
+Your software should be fully autonomous, unless the scope of your project says otherwise.
+2.5 Open-ended Exploration
+Each project is designed to be open-ended, allowing for multiple avenues of exploration. A purpose of the project
+is for students to synthesis their knowledge across the course. More complex solutions to the projects displaying
+more complex autonomous software will receive higher grades compared to trivial or simplified approaches.
+2.6 Demonstration & Analysis
+You (all groups) must complete a demonstration your autonomous software at completing the challenges of your
+particular project. You (all groups) must also complete an analysis of their software, presented in your report.
+This analysis should:
+• Highlight the strengths and capabilities of your work.
+• Identify limitations or weakness of your work.
+3
+You will need to collect evidence to support what the capability of your project.
+2.7 Report
+You must write a report to accompany your final demonstration. Details are provided in Section 6.
+2.8 Activity Risk Assessment and Equipment Risk Assessments
+All projects must complete an Activity Risk Assessment (ARA), before development activities or use of the
+robot may commence. The ARA must be approved by the course coordinator before you can commence work
+on your project. The ARA template is available on Canvas for the project.
+Some projects may also require completing additional induction, along with reviewing and signing associated
+Equipment Risk Assessments.
+2.9 Working in other Labs
+For some projects, you may need to work in other locations and labs, including the VXLab (Ground floor,
+Building 91), or Bundoora spaces. This will require coordinating with staff who run these facilities, completing
+necessary inductions, and complying with all relevant safety requirements.
+For the VXLab, you will need to complete the VXLab induction1.
+For Bundoora, induction links will be provided.
+3 Separate PG and UG requirements
+The requirements for PG and UG students, to satisfy these different levels of study are described in this section.
+Please review this for your level of study.
+3.1 ROS2 Infrastructure & Robot Software Architecture (UG)
+For working with some robot platforms, the software infrastructure is not prepared to the same degree as with
+the ROSBot’s. Some platforms may also use older ROS2 systems, such as Humble. This is often due to the
+robots being setup for research purposes. Therefore, some projects will require UG students to implementation
+additional infrastructure to enable working with the platform.
+This may also include infrastructure that is implemented to ensure that the project is implemented according
+to the chosen robot software architecture. This can include implementing data structures and ROS2 nodes that
+enforce the flow of sensing information and behaviour generation.
+3.2 Extended/Additional Algorithm Implementation (UG)
+All projects have different algorithms/approaches that can be used to complete each project. UG students
+will be expected to implement multiple solutions to their project, if the infrastructure implementation is not
+sufficiently significant (or were not attempted). Unless otherwise noted in the project description, this will be
+discussed with the course coordinator on a per-project basis.
+3.3 Experimental Design and Evaluation (PG)
+As studies extensively in this course, every algorithm has strengths and weaknesses. While every project needs
+to present a discussion of these strengths and weakness, PG students must take this a step further, and design
+an experiment that explicitly highlights both the strengths of their work, and in particular, the limitations.
+That is, PG students will need to consider their algorithm, to design an experiment where evidence can be
+collected to specifically showcase the scope of their implementation. This is more than just recording the robot
+in action. The standard of evaluation, is to collect evidence, including repeatable statistical measures, that
+would be sufficient for a published article.
+PG students will need to propose their experiment methodology during the progress update (During Work-
+shops in Week 12). Therefore, PG students should also consider the time frame of when to complete their
+implementation(s) to allow sufficient time to successfully conduct experiments towards the end of their project.
+1https://forms.office.com/r/YMcPnDuCQv
+4
+3.4 Grading of PG/UG students in the same group
+In this course we build a community that actively works with and supports each other, which is independent
+of the degree any student is studying. Therefore, it would be against the motivation of this course to isolate
+students to groups based on their level of study. Instead, we wish to leverage the strengths of both UG and PG
+levels of study, while also ensuring each student can show their capability relative to their level of study.
+The following diagram gives an approximation of how the PG/UG elements can integrate into a unified project.
+This is not to say that elements are 100% exclusive to the groups, depending on the project, however, these are
+the areas in which each student is expected to make the majority of their contributions to the assessment.
+Infrastructure &
+Robot Software
+Architecture
+(UG)
+Algorithm Im-
+plementation(s)
+(All)
+Extended /
+Additional
+Algorithm Im-
+plementation(s)
+(UG)
+Evaluation Ex-
+periment Design
+(PG)
+Project Demon-
+stration and
+Analysis
+(All)
+Extended Evalu-
+ation Experiment
+and Analysis
+(PG)
+For grading, each student will be graded according to the rubric for their level of study. Generally, all students
+in the group will receive the same grade in rubric components that overlap, and all students of the same study
+level in the group will receive the same grades for their level of study.
+4 Projects
+Below are suggested projects. The scope of each project is briefly described. You will need to further discuss
+and negotiate the scope of your project work with the course coordinator, and agree on the final deliverable.
+The scope may, by negotiation, change throughout the project. The agreed project scope, and any changes,
+must be documented in your final report.
+4.1 Human Safe Animal behaviours with Unitree Go2
+This project is not yet confirmed, and subject to interest from the course.
+This project is to enable the Go2 robot from Unitree to simulate the actions of a pet, leveraging its dog-like
+form, within an open space with multiple people. The Go2 comes with a selection of behaviours which can be
+individually triggered to given the robot the appearance of a dog. This purpose of this project is to enable the
+robot walk safely about an open space, without running into other people or static obstacles, intermittently
+stopping and activating pre-programmed routines that exhibit the behaviours of an dog. Importantly, the
+behaviour of the robot should ensure the absolute safety of both the robot, and any obstacles within the space.
+This particularly includes maintaining safe distances from people, and stopping (lying down) if any person
+approaches too closely.
+The scope of this project is to:
+1. Devise a suitable behaviour system to move about an open space and trigger various pre-programmed
+behaviours.
+2. Determine appropriate sensors and algorithm to monitor the surroundings of the robot.
+3. Ensure the robot never collides with obstacles or people.
+4. Ensure the robot enters a safe mode when people get too close to the robot.
+This project will be conducted in collaborate with Kate Fox from Biomedical Engineering. The robot is not yet
+setup and enabled for autonomous operation. Thus the scope of this project includes:
+• Investigating the Unitree ROS2 interface and devise infrastructure to control the Go2 through ROS2.
+• Investigate the Unitree SDK Sports Serivces for how to trigger appropriate behaviours from the SDK.
+• Implement a Robot Software Architecture for your behaviour and movement system.
+5
+UG students will be expected to significantly contribute to the development of the ROS2 infrastructure, and
+creation of a suitable Robot Software Architecture. PG students will need to carefully consider how to evaluate
+both the safety of the final system, and overall quality of the system.
+4.2 RoboCup Soccer
+This project is to enable the Booster K1 robot’s to compete in the RoboCup HSL 2026 competition. See
+the HSL Rules 20262 for details. The competition includes both the soccer competition proper, and technical
+challenges. The rules define the scope of deliverable and requirements for the completion of the project. In
+negotiation with the course coordinator, this project will select a component of the rules to complete for the
+project. The following aspects are available for the the scope of the project:
+• Localisation of the robot on the Soccer field.
+• Robot vision and detection of field features, ball, and other robots.
+• Motion for reliable movement and kicking.
+For this project you will need to use the existing RedBackBots RoboCup codebase. This codebase already
+contains a defined robot software architecture, which is not permitted to be modified to prevent interference
+with preparations for the RoboCup competition held in July 2026. Therefore, UG students will need to explore
+multiple solutions to their problem.
+You must demonstrate your final code on the Booster K1 robot under competition conditions, and PG students
+must consider how to effectively design an experiment for competition conditions.
+4.3 RoboCup@Home Human-Robot Interactions tasks for Tiago
+This project is to support founding a RoboCup@Home team at RMIT, using Tiago. This RoboCup league
+focuses on HRI tasks for domestic service robots. For this project, you will need to implement software to
+complete a reasonable representation of the “Carry My Luggage” challenge of the RoboCup@Home 2024 ruleset3.
+You should aim to comply with as much of the rules as possible, including the “Deus Ex Machina” contingencies.
+However, you will need to adapt the challenge task to the constraints of the VXLab, such as defining suitable
+‘car’ and ‘delivery’ locations.
+The scope of this project is to:
+1. Learn how to work with Tiago.
+2. Devise a suitable version of the “Carry My Luggage” challenge.
+3. Determine the most appropriate Robot Software Architecture.
+4. Choose and implement a suitable algorithms for enabling Tiago to complete the challenge.
+5. Demonstrate your solution on Tiago.
+Note that at present the Tiago robot in the VXLab uses ROS Noetic, thus as part of this project you will need
+to learn the differences between ROS2 and ROS1.
+UG students will be expected to enforce an explicit robot software architecture suitable for this task. Extended
+implementations could be explored, depending on the direction of the project. PG students should consider
+competition conditions in designing their experiment
+4.4 Augmented Reality for Explainable AI with the ROSBot
+This project is to visual the actions and state the ROSBot Pro 3.0 (and Pro 2.0) in Augmented Reality using
+MetaQuest. This project ties into an research in robotics (and AI in general), known as Explainable AI
+(XAI). XAI is about trying to communicate and explain the action of an autonomous system to humans in an
+interpretable and understandable manner. A key challenge to this project will be integrating information from
+the reference frame of the robot into the MetaQuest. A second key challenge is studying how people unfamiliar
+with autonomous robots respond to your XAI system.
+The scope of this project is to:
+1. Determine the state and action information of the ROSBot Pro 3.0 (and Pro 2.0) to visualise
+2. Choose a suitable task for the ROSBot Pro 3.0 (and Pro 2.0) to complete that for which visualising this
+task in AR would improve the explainability of the robot’s actions to human observers.
+3. Setup the AR software infrastructure libraries for the AI Innovation Lab.
+2https://github.com/RoboCup-HumanoidSoccerLeague/HSL-Rules/
+3https://github.com/RoboCupAtHome/RuleBook/releases/download/2024.2/rulebook.pdf
+6
+4. Integrate ROS2 software and the MetaQuest software for communication between the platforms.
+5. Align the localisation of the ROSBot Pro 3.0 (and Pro 2.0) and the MetaQuest position in a room.
+6. Render state and action information of the ROSBot Pro 3.0 (and Pro 2.0) in AR.
+7. Write minimal ROSBot Pro 3.0 (and Pro 2.0) behaviours of the chosen task to clearly demonstrate the
+effectiveness of AR towards Explainable AI in autonomous robotics.
+8. Demonstrate your system with the ROSBot Pro 3.0 (and Pro 2.0) and MetaQuest.
+This project has considerable infrastructure requirements for UG students to create the MetaQuest-to-ROSBot
+interface. UG students should additionally consider the ability to enable future projects to continue on their
+activities. PG students will need to consider how their experiment can show the quality of their AR explanations.
+4.5 Deep Reinforcement Learning of Robot Control
+This project is to use online Deep Reinforcement Learning algorithms that learn how to control an autonomous
+robot. This project can be conducted with any of the AIIL or VXLab robots, including Panther, Fourier GR1-
+Pro, ROSBots, the UFactory xArm6, the UR5e, or Tiago. If using Panther, this project can be learning control
+of tasks with the UR5e mounted on the robot. In this project, you will work with an existing algorithms for
+online Deep Reinforcement Learning to investigate one method for control. The key to this project will be
+implementing an algorithm and conducting real-world experiments showcasing the learning and control. To
+complete this project you will need to define a suitable task.
+You will need to choose which online Deep Reinforcement Learning algorithm such as:
+• Dreamer (or variants)
+• SAC (or variants)
+• TD3 (or variants)
+• Other algorithms of your choosing
+The scope of this project is to:
+1. Choose and Research a Deep Reinforcement Learning algorithm
+2. Define a suitable control task for learning
+3. Implement the chosen algorithm within the existing codebase(s).
+4. Devise a suitable control or navigation task.
+5. Conduct real-world experiments to evaluate your chosen algorithm.
+6. Demonstrate your final trained controller.
+Example tasks could include:
+1. Learning to kick an AFL ball with Booster K1.
+2. Learning to move different objects into a container with a robot arm.
+3. Learning to ‘catch’ a moving ball with a robot arm.
+4. Learning to pick-up small objects with the Panther arm.
+The adoption of a robot software architecture in reinforcement learning contexts is challenging. Instead, this
+project has infrastructure requirements to create a learning framework, sufficient for UG students. Alternatively
+UG students may explore Sim2Real learning or the use of multiple algorithms. PG students will need to consider
+experiment conditions to explore the scope of reinforcement learning.
+4.6 LLM Empowered Conversational and Sociable Robot
+This project is to enable a humanoid robots, such as the Softbank Nao V6, Booster K1, or Fourier GR1-Pro
+robot to be a sociable robot, capable of holding a conversation with a person, where the conversation is backed
+by a LLM interface (such as Gemma4). For example, the robot might be able a greeter for RMIT labs when
+visitors arrive. However, the sociable robot must be more than just an microphone and speaker for an LLM.
+For social robots to be accepted in human environments, they need to move and react in ‘natural’ (or at least
+acceptable) ways. This include body movement and gestures that shows a presence within the social setting.
+LLMs can be enabled to not just provide textual output, but also select from a library of actions in conjunction
+with spoken output. Thus, this project is to build a system to interface a humanoid robot with an LLM to
+reply to spoken conversation, while exhibiting ‘natural’ movement in response to the environment.
+To complete this project, you will need to:
+• Research how to enable LLMs to both produce textual output and select from a library of control based
+on inputs
+• Select algorithms to provide input to the sociable robot interface.
+7
+• Select a the library of algorithms and/or functions to enable the movement and control of the robot.
+• Determine scope of conversation topics.
+• Devise a suitable persona for the LLM.
+• Develop the interface between the robot software, and the LLM.
+This project may be conducted in collaboration with the RMIT RACE Hub, who can provide access to AWS
+Services to power the LLM backing of the robot.
+UG students will be expected to significantly contribute to the infrastructure to support this project. PG
+students will need to consider how to measure the quality and sociability of the robot, which is non-trivial
+within the setting of social robots.
+4.7 Navigation to Simulate Macadamia/Chestnut Farm Residual Harvesting
+This project is to enable the ROSBot Pro (or Panther robot) to complete a simulated outdoor navigation task
+in an environment similar to macadamia/chestnut farms. A representative environment of an Orchid for a
+macadamia/chestnut farm is a field with multiple rows of trees, and the task is to drive the robot around the
+trees to collect nuts as if it was towing a harvester. This project combines challenges in navigation, object
+detection, and path planning. The key challenge is to create an full autonomous system, and will require careful
+consideration of the Robot Software Architecture, and coordination of the different software elements.
+For this project you will need to:
+1. Devise a simulated navigation task, including a suitable representation of a macadamia environment,
+suitable representation of rows of trees, starting location of the robot, and location of return of the robot.
+2. Determine the most appropriate Robot Software Architecture.
+3. Choose and implement navigation and mapping algorithm(s).
+4. Choose and implement object recognition algorithm(s).
+5. Choose and implement a suitable planning and coordination algorithm.
+6. Demonstrate your software architecture and functionality on the Panther robot.
+You may leverage a simulation environment on TheConstruct to help with experiment and testing, however,
+your final demonstration and evaluation must be on a real robot.
+UG students will be expected to implement and enforce an explicit robot software architecture suitable for this
+task as part of creating the software infrastructure for the chosen robot. PG students should consider how to
+best simulate macadamia/chestnut conditions within the confines of our lab space(s).
+4.8 Pick-and-Place tasks with Cobot UR5e Arm
+This project is to enable the Cobot UR5e Arm, or UFactory xArm6 arm, to complete a pick-up and placement
+tasks in a fixed environment. This projects combined challenges of object visual recognition, manipulation, and
+task-planning. The task could be a pick-and-place task such as block-stacking, shelf stacking, item bin sorting,
+or a 2D player game. However, the type of task you choose will need to include a task-planning component.
+The key challenge is to create a fully autonomous system, from low-level control to high-level task planning,
+and will require careful consideration of the Robot Software Architecture.
+For this project you will need to:
+1. Devise an appropriate pick-and-place task, that includes a task-planning component.
+2. Configure the software stack of the Cobot UR5e arm.
+3. Determine the most appropriate Robot Software Architecture.
+4. Choose and implement appropriate vision object recognition algorithm(s).
+5. Choose and implement appropriate manipulation algorithm(s).
+6. Choose and implement a suitable task-planning algorithm.
+7. Demonstrate your software on the Cobot UR5e arm.
+Example tasks could include:
+1. ‘Catching’ a moving ball with a robot arm.
+2. Playing a ‘2D’ game of Connect-4.
+3. Stacking blocks of different shapes.
+Each arm will require some software infrastructure to be created. UG students will also be expected to imple-
+ment and enforce an explicit robot software architecture suitable for this task as part of creating the software
+infrastructure. PG students should consider how to best show the capability of the task execution, especially
+on how to demonstrate limitations of their project.
+8
+4.9 Multi-ROSBot Game
+This project is to enable multiple robots to independently and autonomously play a game like ‘follow-the-leader’,
+or ’tag’ within a pre-defined space. You should use multiple ROSBot Pro 3.0 (and Pro 2.0) robots (at least
+three). You will need to design your software to allow each robot to be as independent as possible, with limited
+coordination by a ‘centralised’ contoller (likely running on your own device). You will need to consider how to
+avoid collisions with both other robots and environment obstacles.
+A challenge of this project is ROS2 how to enable the multi-robot game. Our software setup for the ROSBot’s
+does not support multiple robots directly communicating together. You are not permitted to change this
+configuration. That is, each robot should be an independent player of the game, much like individual humans
+playing similar games. Instead, you may have a single coordinator node, that can share information between
+multiple nodes. This coordinator could be put onto a robot, or one an external device. You will need to consider
+how to write your algorithm(s) for independent robot action, with limited coordination from a central system.
+You will need to determine how to manage the coordinator node. We recommend using ROS2 domain bridge
+to enable sending/receiving very limited information between each robot and the coordinator. You will need to
+consider what information to send.
+The scope of this project is to:
+1. Define a suitable swarm task.
+2. Research swarming algorithms.
+3. Research ROS2 configuration requirements to support swarms of robots.
+4. Implement swarm software to coordinate the actions of multiple robots to complete the swarm tasks while
+avoiding collisions.
+5. Demonstrate the swarm behaviours in simulation and/or on the real ROSBot Pro 3.0 (and Pro 2.0) robots.
+This project has scope for UG students in setting up both the infrastructure for coordinating the robots and
+enforcing suitable robot software architectures on every robot. PG students will need to consider the complexities
+of designing a repeatable experiment with multiple robots.
+4.10 Person Recognition and Tracking
+This project is to enable the Panther to recognise and respond to the presence of 4 specific people that the
+robot has been trained to recognise, and then follow one of the recognised people as they move. The recognition
+and tracking task will be completed within an indoor environment, but is not confined to the space of the
+AI Innovation Lab. That is, could be conducted within building environments at RMIT, such as Building 14
+spaces, and classroom spaces.
+The scope of this project is to:
+1. Create original software for to enable the Panther to recognise at least 4 unique individuals.
+2. Determine appropriate sensors and data by which to train and recognise the individuals.
+3. Write behaviours for the Panther to track and follow the individual that it has recognised in an indoor
+environment.
+4. Determine appropriate sensors and data by which to follow a person.
+5. Research potential software features of the ZED camera to complete the above scope.
+6. Demonstrate your solution on Panther.
+You will need to research methods for efficient real-time person recognition and tracking, and how to most
+effectively leverage the Panther sensors. Person recognition could be achieved by:
+• Facial recognition
+• Recognising body shape and size
+• Voice recognition
+UG students will be expected to implement and enforce an explicit robot software architecture suitable for this
+task as part of creating the software infrastructure for the chosen robot. PG students should consider how
+to best evaluate the robot’s person recognition, including the training process and successful recognition of
+multiple different people.
+4.11 ROSBot Package Pickup and Delivery
+This project is to devise and implement a single ROSBot dynamic pickup and delivery task, where a ROSBot
+must repeatedly search for simulated package pickup locations, and deliver the package(s) to simulated delivery
+9
+locations. The challenges in this project are based around search, navigation, vision, and task planning. You
+will need to devise a suitable version of this delivery challenge, which is an extension of the below minimal
+requirements. A key challenges in this project is maximising the number of packages that can be delivered
+within a limited timeframe. This will require careful though into both how you devise a suitable delivery
+challenge, and the task planning algorithms that you implement to manage package pickup and delivery.
+Minimally, the ROSBot will need to:
+• Have a rigid ’pointer device’ temporarily attached the robot, that can ideally be seen in the camera.
+• Search an unstructured and dynamic environment for one or more Aurco markers.
+• At least one marker will denote a “pickup” location, from where the ROSBot must visit and ‘touch’ the
+marker to pickup a unique package.
+• At least one marker will denote a unique “delivery” location for the package. The ROSBot must visit and
+‘touch’ the marker to deliver the package.
+• ‘Carry’ multiple packages at once, that is, visit multiple pick-up locations and deliver the packages to
+multiple delivery locations.
+• Track the package carrying and delivery status.
+• Continue to operate for a 15 minute period delivering as many packages as possible.
+• Produce an accurate map and log of all actions of the ROSBot over the operation.
+During the run:
+• There will always be at least one pickup-delivery Aurco marker pair.
+• The pickup and delivery Aruco markers may be added, removed, and/or repositioned.
+• Dynamic obstacles may move about the unstructured environment, including other robots and people.
+You may use mecanum (omni-directional) wheels on the ROSBot, and will likely find these useful for imple-
+menting control logic to touch the Aurco markers. If taking this approach, you will need to speak with the
+course staff about the physical and software setup to enable.
+For this project you will need to:
+1. Source unique Aruco markers to use.
+2. Define a mapping of Aruco markers to unique pickup and delivery points.
+3. Source an appropriate pointer device and attachment method.
+4. Develop suitable robot visual algorithms to identify Aruco markers.
+5. Research and develop suitable navigation and behaviour coordination logic.
+6. Determine the most appropriate form(s) in which to provide a map and log of the ROSBot’s actions during
+its operation.
+7. Research and develop suitable task planning logic to manage package deliveries.
+8. Demonstrate your solution on the ROSBot.
+4.12 Negotiated Project
+If you have your own ideas for a project in this course, then you may propose and negotiate a project with
+the course coordinator. This proposal and negotiation will need to clearly define the scope of the project and
+the expected deliverables for the demonstrations.
+You should begin this discussion as soon as possible. The scope of the negotiated project must be finalised by
+no later than the Thursday Workshop in Week 9.
+5 Demonstrations
+You will conduct 2 demonstrations of your work throughout the course of the project. The first demonstration
+will be a progress update during Week 12 classes. The second will be the final demonstration of your project
+work, held by appointment during Week 15.
+5.1 Week 12 Progress Demonstrations
+During Workshops in Week 12 you will hold a progress update on the work your group has completed.
+Your progress update should demonstrate and discuss:
+• That the project is on-track according to the project scope
+• Components for a minimally viable solution to the project
+10
+Your progress update should discuss the timeline of your completion of the project. This should include:
+• A feasible plan for the completion of the project
+• Improvement of the project beyond the minimally viable solution
+• Intended deliverables to be demonstrated during the final demonstration
+• (UG) A feasible plan and improvements of the project for extended infrastructure, architecture, and/or
+implementation
+• (PG) Proposed experimental evaluation of the project
+As part of this update you will submit on Canvas:
+• A complete copy of your current software
+• Your plan for completion of the project
+• A record of evidence of your individual work
+5.2 Final Demonstrations
+! Note that this demonstration will happen before you make your final submission.
+The final assessment of your project will be conducted via a live demonstration in During Week 15 (by appoint-
+ment). The demonstration will happen before you make your final submission so that you have time after the
+demonstration to complete your final report. Your final demonstration should:
+• Show that the project meets the scoped requirements.
+• Distinguish your work’s original implementation to from existing literature, software and/or dependencies.
+• Showcase the capabilities of your implementation.
+• (UG) Discuss/showcase your extended infrastructure, architecture, and/or implementation.
+• (PG) Discuss/showcase the results of your experimental evaluation. You should aim to demonstrate a
+subset of these results.
+• Be well-prepared with minimal time lost for setup, configuration, and restarts. You may supplement your
+demonstration by additional material or recordings.
+6 Report
+You are required to write a report that:
+• Describes the Methodology of your development and work.
+• (UG) Describe your extended infrastructure, architecture, and/or implementation.
+• Analyses and discuss the capabilities of the project.
+• Present evidence in support of your analysis.
+• (PG) Describe the methodology of your experimental evaluation, and present the result of your evaluation
+This presents a critical quantitative or qualitative evaluation of the strenghs and limitations of your work.
+• Includes a full list of references to existing software and relevant literature.
+You should structure this report similar to a research paper, to contain sections such as:
+• Introduction
+• Related Work (Existing Methods)
+• Methodology
+• Results
+• Analysis & Evaluation
+• Conclusion
+You should including data tables and figures that support the written text. Figures and tables should be
+formatted to be fully legible at default 100% PDF zoom level, and legible when printed in black-and-white.
+The format of your report should be:
+• No more than 10 pages, including figures, tables and references.
+• Single Column
+• No less than 1.5cm margins
+• No less than 11pt font.
+11
+7 Submission
+Follow the instructions on Canvas to complete your submission for the Assignment.
+Assessment declaration: When you submit work electronically, you agree to the assessment declaration.
+7.1 Help during Weeks 13-15
+After Week 12, there are no formally scheduled classes. Please note that limited help will be available during
+this time frame, and any in-person help will need to be conducted by a pre-arranged appointment. Therefore,
+you should ensure that you discuss all necessary and important issues/question during your progress update.
+7.2 Late Submissions & Extensions
+A penalty of 10% per day is applied to late submissions up to 5 business days, after which you will lose ALL the
+assignment marks. Extensions will be given only in exceptional cases; refer to Special Consideration process.
+8 Marking guidelines
+The marks are divided as follows:
+• Progress Update
+– Demonstration: 10/50
+• Final Demonstration
+– Demonstration of Implementation: 10/50
+– Demonstration of Evaluation and Results: 5/50
+– Individual Contribution: 5/50
+• Report (40%)
+– Description of Methodology: 5/50
+– Analysis and Evaluation: 10/50
+– Writing and Referencing style: 5/50
+The detailed breakdown of this marking guidelines is provided on the rubric linked on Canvas.
+9 Academic integrity and plagiarism (standard warning)
+Academic integrity is about the honest presentation of your academic work. It means acknowledging the work
+of others while developing your own insights, knowledge and ideas. You should take extreme care that you have:
+• Acknowledged words, data, diagrams, models, frameworks and/or ideas of others you have quoted (i.e.
+directly copied), summarised, paraphrased, discussed or mentioned in your assessment through the ap-
+propriate referencing methods
+• Provided a reference list of the publication details so your reader can locate the source if necessary. This
+includes material taken from Internet sites. If you do not acknowledge the sources of your material, you
+may be accused of plagiarism because you have passed off the work and ideas of another person without
+appropriate referencing, as if they were your own.
+RMIT University treats plagiarism as a very serious offence constituting misconduct. Plagiarism covers a variety
+of inappropriate behaviours, including:
+• Failure to properly document a source
+• Copyright material from the internet or databases
+• Collusion between students
+For further information on our policies and procedures, please refer to the RMIT Academic Integrity Website.
+The penalty for plagiarised assignments include zero marks for that assignment, or failure for this course. Please
+keep in mind that RMIT University uses plagiarism detection software.
+12
