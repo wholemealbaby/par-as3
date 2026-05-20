@@ -3,3 +3,5 @@ memory-bank/
 *roo/
 plans/
 soccer/
+*.env*
+__pycache__/
