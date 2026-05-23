@@ -4,4 +4,4 @@ memory-bank/
 plans/
 soccer/
 *.env*
-__pycache__/
+__pycache__*
