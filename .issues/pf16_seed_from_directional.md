@@ -1,5 +1,11 @@
 # PF-16 — Selective Initialisation Phase 1: Directional Feature Seeding
 
+> File containing one issue for PF-16.
+
+---
+
+## PF-16 · Selective Initialisation Phase 1: Directional Feature Seeding
+
 **Labels:** `enhancement` `pf` `par`
 **Priority:** P1 — improves convergence speed with low complexity
 **Estimates:** ~45 min

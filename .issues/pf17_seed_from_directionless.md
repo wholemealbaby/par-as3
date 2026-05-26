@@ -1,5 +1,11 @@
 # PF-17 — Selective Initialisation Phase 2: Directionless Feature Seeding (Annulus Sampling)
 
+> File containing one issue for PF-17.
+
+---
+
+## PF-17 · Selective Initialisation Phase 2: Directionless Feature Seeding (Annulus Sampling)
+
 **Labels:** `enhancement` `pf` `par`
 **Priority:** P2 — improves convergence but adds complexity over PF-16
 **Depends on:** PF-16 (uses the same `mergeSeededParticles()` helper and `seedParticlesFromObservation()` dispatcher)
