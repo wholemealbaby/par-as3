@@ -100,20 +100,119 @@ def draw_field(ax):
 
 def draw_feature_arrow(ax, x, y, orientation, color, label=None, zorder=5):
     """Draw a field feature with its orientation arrow."""
+    # Square marker for the feature
     ax.scatter(x, y, marker='s', s=60, color=color, edgecolors='white',
                linewidths=1.5, zorder=zorder)
-    arrow_len = 250
+    # Orientation arrow
+    arrow_len = 300
     dx = arrow_len * math.cos(orientation)
     dy = arrow_len * math.sin(orientation)
-    ax.arrow(x, y, dx, dy, head_width=80, head_length=100,
-             fc=color, ec=color, linewidth=1.5, zorder=zorder, alpha=0.7)
+    ax.arrow(x, y, dx, dy, head_width=100, head_length=120,
+             fc=color, ec=color, linewidth=2.0, zorder=zorder, alpha=0.85)
+    # Orientation value label
+    orient_deg = math.degrees(orientation)
+    ax.annotate(
+        f"θ={orient_deg:.1f}°",
+        xy=(x, y ),
+        xytext=(-400, 1900),
+        fontsize=6, color=color, fontweight='bold',
+        bbox=dict(boxstyle='round,pad=0.15', facecolor='white',
+                  edgecolor=color, alpha=0.85, linewidth=0.8),
+        zorder=zorder
+    )
     if label:
-        ax.annotate(label, xy=(x, y), xytext=(x + dx + 40, y + dy + 40),
+        ax.annotate(label, xy=(x, y), xytext=(x, y - 120),
                     fontsize=7, color=color, fontweight='bold',
+                    ha='center', va='top',
                     bbox=dict(boxstyle='round,pad=0.2', facecolor='white',
                               edgecolor=color, alpha=0.8),
-                    arrowprops=dict(arrowstyle='->', color=color, lw=0.8),
                     zorder=zorder)
+
+
+def draw_pose_arrow(ax, x, y, theta, color, label, arrow_len=300,
+                    head_width=100, head_length=120, linestyle='-',
+                    linewidth=2.5, zorder=7, marker_size=60, is_computed=False,
+                    annot_dx=50, annot_dy=50):
+    """Draw a robot/pose arrow with position marker and heading annotation.
+    
+    The arrow shaft originates at (x, y). The heading annotation label is
+    placed at (arrow_tip_x + annot_dx, arrow_tip_y + annot_dy) — pass different
+    annot_dx/annot_dy for computed vs robot pose to prevent label overlap.
+    """
+    dx = arrow_len * math.cos(theta)
+    dy = arrow_len * math.sin(theta)
+
+
+
+    # Arrow shaft from true position
+    ax.arrow(x, y, dx, dy,
+             head_width=head_width, head_length=head_length,
+             fc=color, ec=color,
+             linewidth=linewidth, zorder=zorder, alpha=0.85,
+             linestyle=linestyle)
+
+    # Position marker at true position
+    marker = 'o' if not is_computed else 'D'
+    ax.scatter(x, y, marker=marker, s=marker_size,
+               color=color, zorder=zorder,
+               label=label, alpha=0.8)
+
+    # Heading value annotation (offset by annot_dx/annot_dy to avoid overlap)
+    theta_deg = math.degrees(theta)
+    text_y = 2400
+    # For computed poses, offset the heading value annotation
+    if is_computed:
+        text_y = 2100
+    ax.annotate(
+        f"θ={theta_deg:.1f}°",
+        xy=(x, y),
+        xytext=(-400, text_y),
+        fontsize=7, color=color, fontweight='bold',
+        bbox=dict(boxstyle='round,pad=0.15', facecolor='white',
+                  edgecolor=color, alpha=0.85, linewidth=0.8),
+        arrowprops=dict(arrowstyle='->', color=color, lw=0.6),
+        zorder=zorder
+    )
+
+
+def draw_error_vector(ax, x1, y1, x2, y2, zorder=9):
+    """Draw a thin red line connecting robot position to computed position,
+    showing the error even when positions are nearly identical."""
+    dx = x2 - x1
+    dy = y2 - y1
+    err = math.hypot(dx, dy)
+    # Draw the line (visible even at sub-mm scale due to linewidth)
+    ax.plot([x1, x2], [y1, y2],
+            color='#d32f2f', linewidth=1.5, linestyle='-',
+            alpha=0.8, zorder=zorder, solid_capstyle='round')
+    # Only show annotation if error is measurable enough
+    if err > 0.01:
+        mx, my = (x1 + x2) / 2, (y1 + y2) / 2
+        ax.annotate(
+            f"Δ={err:.2f}mm",
+            xy=(mx, my),
+            xytext=(mx + 40, my + 40),
+            fontsize=6, color='#d32f2f', fontweight='bold',
+            bbox=dict(boxstyle='round,pad=0.15', facecolor='white',
+                      edgecolor='#d32f2f', alpha=0.85, linewidth=0.8),
+            zorder=zorder
+        )
+
+
+def draw_observation_arrow(ax, x1, y1, x2, y2, color, zorder=3):
+    """Draw a directional observation line from (x1,y1) to (x2,y2)."""
+    # Thin line
+    ax.plot([x1, x2], [y1, y2],
+            color=color, linewidth=1.0, linestyle=':', alpha=0.5, zorder=zorder)
+    # Direction arrow at midpoint
+    mx, my = (x1 + x2) / 2, (y1 + y2) / 2
+    dx, dy = x2 - x1, y2 - y1
+    length = math.hypot(dx, dy)
+    if length > 0:
+        dx_n, dy_n = dx / length, dy / length
+        ax.arrow(mx - 50*dx_n, my - 50*dy_n, 100*dx_n, 100*dy_n,
+                 head_width=60, head_length=70, fc=color, ec=color,
+                 linewidth=1.0, alpha=0.4, zorder=zorder)
 
 
 # ═══════════════════════════════════════════════════════════════════════
@@ -196,41 +295,46 @@ def visualise_results(results: List[Result]):
     for idx, r in enumerate(results):
         ax = axes[idx]
         status = "PASS" if r.passed else "FAIL"
+        fc = FEATURE_COLORS.get(r.feature_type, '#333333')
 
         draw_field(ax)
 
-        # Feature marker
-        fc = FEATURE_COLORS.get(r.feature_type, '#333333')
+        # 1. FEATURE — show at (ff_x, ff_y) with orientation arrow
         draw_feature_arrow(ax, r.ff_x, r.ff_y, r.ff_orientation, fc,
                            label=r.feature_type)
 
-        # Observation line (robot -> feature)
-        ax.plot([r.robot_x, r.ff_x], [r.robot_y, r.ff_y],
-                color=fc, linewidth=1.0, linestyle=':', alpha=0.5, zorder=3)
+        # 2. OBSERVATION — directional arrow from robot to feature
+        draw_observation_arrow(ax, r.robot_x, r.robot_y,
+                               r.ff_x, r.ff_y, fc)
 
-        # Known robot pose
-        arrow_len = 250
-        rdx = arrow_len * math.cos(r.robot_theta)
-        rdy = arrow_len * math.sin(r.robot_theta)
-        ax.arrow(r.robot_x, r.robot_y, rdx, rdy,
-                 head_width=80, head_length=100, fc='#1565c0', ec='#1565c0',
-                 linewidth=2, zorder=7, alpha=0.8)
-        ax.scatter(r.robot_x, r.robot_y, marker='o', s=60,
-                   color='#1565c0', edgecolors='white', linewidths=1.5, zorder=7,
-                   label='Robot (known)' if idx == 0 else '')
+        # 3. ERROR VECTOR — thin red line connecting robot ↔ computed positions
+        draw_error_vector(ax, r.robot_x, r.robot_y,
+                          r.computed_x, r.computed_y)
 
-        # Computed pose (should overlap identically if PASS)
-        cdx = arrow_len * math.cos(r.computed_theta)
-        cdy = arrow_len * math.sin(r.computed_theta)
-        ax.arrow(r.computed_x, r.computed_y, cdx, cdy,
-                 head_width=60, head_length=80, fc='#ff6f00', ec='#ff6f00',
-                 linewidth=1.5, zorder=6, alpha=0.7, linestyle='--')
-        ax.scatter(r.computed_x, r.computed_y, marker='o', s=40,
-                   color='#ff6f00', edgecolors='white', linewidths=1, zorder=6,
-                   label='Computed' if idx == 0 else '')
+        # 4. ROBOT POSE (ground truth) — solid blue arrow + heading label
+        #    Heading label at +50,+50 from arrow tip
+        draw_pose_arrow(ax, r.robot_x, r.robot_y, r.robot_theta,
+                        color='#1565c0', label='Robot (ground truth)',
+                        arrow_len=280, head_width=100, head_length=120,
+                        zorder=7, is_computed=False,
+                        annot_dx=50, annot_dy=50)
 
-        err_label = f"err={r.error_position:.2f}mm" if not r.passed else ""
-        ax.set_title(f"Test {idx+1}: {status}\n{r.feature_type}\n{err_label}",
+        # 5. COMPUTED POSE (candidate) — dashed orange diamond + heading label
+        #    Heading label offset from arrow tip to avoid overlapping robot's label
+        draw_pose_arrow(ax, r.computed_x, r.computed_y, r.computed_theta,
+                        color='#ff6f00', label='Candidate (computed)',
+                        arrow_len=280, head_width=90, head_length=110,
+                        zorder=6, is_computed=True, linestyle='--',
+                        linewidth=2.0, marker_size=60,
+                        annot_dx=250, annot_dy=250)
+
+        # Error label
+        err_label = ""
+        if not r.passed:
+            err_label = f" pos err={r.error_position:.1f}mm"
+        elif r.error_position > 0.5:
+            err_label = f" Δ={r.error_position:.2f}mm"
+        ax.set_title(f"Test {idx+1}: {status}\n{r.feature_type}{err_label}",
                      fontsize=9, fontweight='bold',
                      color='green' if r.passed else 'red')
         ax.set_xlabel('X (mm)', fontsize=8)
@@ -241,6 +345,17 @@ def visualise_results(results: List[Result]):
         ax.set_ylim(-HALF_W - margin, HALF_W + margin)
         ax.grid(True, alpha=0.1, linestyle='--')
         ax.tick_params(labelsize=7)
+
+        # Legend for every subplot (not just first)
+        legend_elements = [
+            mpatches.Patch(color='#1565c0', label='Robot (ground truth)'),
+            mpatches.Patch(color='#ff6f00', label='Candidate (computed)'),
+            mpatches.Patch(color=fc, label=f'{r.feature_type}', alpha=0.7),
+            plt.Line2D([0], [0], color='gray', linestyle=':', linewidth=1,
+                       label='Observation'),
+        ]
+        ax.legend(handles=legend_elements, loc='lower right', fontsize=6,
+                  framealpha=0.85, ncol=2)
 
     # Hide unused subplots
     for idx in range(n_tests, len(axes)):
@@ -260,35 +375,45 @@ def visualise_results(results: List[Result]):
 
     for idx, r in enumerate(results):
         fc = FEATURE_COLORS.get(r.feature_type, '#333333')
-
-        # Feature marker
-        ax2.scatter(r.ff_x, r.ff_y,
-                    marker='o', s=80, color=fc, edgecolors='white',
-                    linewidths=1.5, zorder=6, alpha=0.7)
-
-        # Observation line
-        ax2.plot([r.robot_x, r.ff_x], [r.robot_y, r.ff_y],
-                 color=fc, linewidth=1.0, linestyle=':', alpha=0.5, zorder=3)
-
-        # Robot pose (coloured by test index)
         color = plt.cm.tab10(idx / max(n_tests - 1, 1))
-        arrow_len = 300
-        rdx = arrow_len * math.cos(r.robot_theta)
-        rdy = arrow_len * math.sin(r.robot_theta)
-        ax2.arrow(r.robot_x, r.robot_y, rdx, rdy,
-                  head_width=100, head_length=120, fc=color, ec=color,
-                  linewidth=2, zorder=7, alpha=0.8)
-        ax2.scatter(r.robot_x, r.robot_y, marker='o', s=50,
-                    color=color, edgecolors='white', linewidths=1.5, zorder=7)
 
-        # Test number label
+        # Feature marker with orientation
+        draw_feature_arrow(ax2, r.ff_x, r.ff_y, r.ff_orientation, fc,
+                           label=None)
+
+        # Observation directional arrow
+        draw_observation_arrow(ax2, r.robot_x, r.robot_y,
+                               r.ff_x, r.ff_y, fc)
+
+        # Error vector (robot ↔ computed)
+        draw_error_vector(ax2, r.robot_x, r.robot_y,
+                          r.computed_x, r.computed_y)
+
+        # Robot pose (coloured by test index) — heading label at +50,+50
+        draw_pose_arrow(ax2, r.robot_x, r.robot_y, r.robot_theta,
+                        color=color, label=None,
+                        arrow_len=300, head_width=100, head_length=120,
+                        zorder=7, is_computed=False,
+                        annot_dx=50, annot_dy=50)
+
+        # Computed pose — heading label at -70,+10 to avoid overlapping robot's label
+        draw_pose_arrow(ax2, r.computed_x, r.computed_y, r.computed_theta,
+                        color=color, label=None,
+                        arrow_len=300, head_width=90, head_length=110,
+                        zorder=6, is_computed=True, linestyle='--',
+                        linewidth=2.0, marker_size=60,
+                        annot_dx=-70, annot_dy=10)
+
+        # Test number label (from robot pose arrow tip)
+        rdx = 300 * math.cos(r.robot_theta)
+        rdy = 300 * math.sin(r.robot_theta)
         ax2.annotate(
             str(idx + 1),
             xy=(r.robot_x, r.robot_y),
-            xytext=(r.robot_x + rdx + 50, r.robot_y + rdy + 50),
+            xytext=(r.robot_x + rdx + 60, r.robot_y + rdy + 60),
             fontsize=8, color=color, fontweight='bold',
             bbox=dict(boxstyle='round,pad=0.2', facecolor='white',
-                      edgecolor=color, alpha=0.8),
+                      edgecolor=color, alpha=0.85),
             arrowprops=dict(arrowstyle='->', color=color, lw=1.0),
             zorder=8
         )
@@ -297,16 +422,16 @@ def visualise_results(results: List[Result]):
             mpatches.Patch(color=color, label=f"Test {idx+1}")
         )
 
+    # Overall legend categories
+    legend_elements.append(
+        mpatches.Patch(color='#1565c0', label='Robot (ground truth)', alpha=0.7))
+    legend_elements.append(
+        mpatches.Patch(color='#ff6f00', label='Candidate (computed)', alpha=0.7))
     # Feature type legend
     for ft, fc in FEATURE_COLORS.items():
         legend_elements.append(
             mpatches.Patch(color=fc, label=f'Observed {ft}', alpha=0.7)
         )
-
-    legend_elements.append(
-        mpatches.Patch(color='#1565c0', label='Known robot pose'))
-    legend_elements.append(
-        mpatches.Patch(color='#ff6f00', label='Computed pose'))
 
     ax2.legend(handles=legend_elements, loc='upper right', fontsize=8,
                framealpha=0.9, ncol=2)
