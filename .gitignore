@@ -7,3 +7,4 @@ soccer/
 __pycache__*
 scripts/
 .venv/
+.vscode/settings.json
