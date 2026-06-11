@@ -5,3 +5,5 @@ plans/
 soccer/
 *.env*
 __pycache__*
+scripts/
+.venv/
