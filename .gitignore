@@ -8,3 +8,5 @@ __pycache__*
 scripts/
 .venv/
 .vscode/settings.json
+soccer/
+soccer*
