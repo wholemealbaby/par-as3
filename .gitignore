@@ -10,3 +10,5 @@ scripts/
 .vscode/settings.json
 soccer/
 soccer*
+*.mp4
+test-runs/
