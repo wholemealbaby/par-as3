@@ -1,4 +1,4 @@
-*cline*/
+rr*cline*/
 memory-bank/
 *roo/
 plans/
@@ -6,3 +6,10 @@ soccer/
 *.env*
 __pycache__*
 .cline*
+scripts/
+.venv/
+.vscode/settings.json
+soccer/
+soccer*
+*.mp4
+test-runs/

@@ -1,0 +1,1 @@
+seed_group_id,candidate_idx,feature_type,is_yolo,feature_x,feature_y,feature_orientation,obs_distance,obs_heading,obs_orientation,candidate_x,candidate_y,candidate_theta,robot_pose_x,robot_pose_y,robot_pose_theta
