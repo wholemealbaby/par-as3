@@ -5,3 +5,4 @@ plans/
 soccer/
 *.env*
 __pycache__*
+.cline*
